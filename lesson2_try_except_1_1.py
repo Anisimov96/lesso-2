@@ -1,0 +1,23 @@
+# Обработчик исключений (try/except)
+
+def ask_user (question, questions):
+    try:
+        while True:
+            user_say = input(question)
+            if user_say == "Нет":    
+                break
+            else:
+                term = input("Задай вопрос программе:")
+                if term in questions:
+                    print (questions[term]) 
+                else:
+                    print(f'Я не знаю что ответить на вопрос {term}')
+                # print(f'Сам ты {user_say}')    
+        b = "Все пока"
+        return b
+    except KeyboardInterrupt:
+        return ('\nНе делай так больше')
+
+questions = {'Как дела?': 'Хорошо!', "Что делаешь?": "Программирую"}
+a = ask_user ("Будут еще вопросы?", questions)
+print(a)
