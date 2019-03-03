@@ -8,21 +8,23 @@ school = [{'school_class':'4а', 'scores':[3,4,4,5,2]},
 list_a = 0 # сумма оценок всей школы
 list_b = 0 # количество оценок всей школы
 
-for i in school:    
+'''for i in school:  
+  list_b += len(i['scores'])
   for d in i['scores']:
     list_a += d
-    list_b += 1
 c = list_a / list_b # средний балл всей школы
-print (f'Средний балл по всей школе = {c}')
+print (f'Средний балл по всей школе = {c}')'''
 
 # Найдем средний балл по каждому классу
 amount = 0 # Сумма оценок
+amount_school = 0 # Сумма оценок всей школы
+c = 0
 for dictionary in school :
     a = dictionary['school_class'] # классы
     b = dictionary['scores']  # список оценок 
-    # переберем элементы в списке оценок и найдем их сумму
-    for i in b :
-        amount += i
-    average_mark = amount / len(b)  # Средний бал по каждому класс
-    amount = 0
+    average_mark = sum(b) / len(b)  # Средний бал по каждому класс
+    amount_school += sum(b)
+    c += len(b)
     print (f'Средняя оценка класса {a} = {average_mark}')
+average_mark_school = amount_school / c
+print (f'Средний балл по всей школе = {average_mark_school}')
